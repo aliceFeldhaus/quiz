@@ -63,7 +63,9 @@ public class QuizService {
 	private void atualizaDadosCascata(List<Question> questions, Quiz quiz) {
 		for (Question question : questions) {
 			question.setQuiz(quiz);
-			question.getAnswers().forEach(answer -> answer.setQuestion(question));
+			if(question.getAnswers() != null) {
+				question.getAnswers().forEach(answer -> answer.setQuestion(question));
+			}
 		}
 	}
 }

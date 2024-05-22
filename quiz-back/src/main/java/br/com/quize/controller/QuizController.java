@@ -16,6 +16,7 @@ import br.com.quize.dto.CadastrarQuizDto;
 import br.com.quize.dto.DetalheQuizDto;
 import br.com.quize.dto.QuizDto;
 import br.com.quize.service.QuizService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/quizes")
@@ -38,7 +39,7 @@ public class QuizController {
 	}
 
 	@PostMapping
-	public ResponseEntity<String> save(@RequestBody CadastrarQuizDto quizDto) {
+	public ResponseEntity<String> save(@Valid @RequestBody CadastrarQuizDto quizDto) {
 		try {
 			service.save(quizDto);
 			return ResponseEntity.ok().build();

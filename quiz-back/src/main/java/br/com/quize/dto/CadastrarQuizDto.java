@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.quize.model.Question;
 import br.com.quize.model.Quiz;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,9 @@ import lombok.Setter;
 public class CadastrarQuizDto {
 
 		private Long id;
+		@NotBlank(message = "{nome.obrigatorio}")
 		private String name;
+		@NotBlank(message = "{descricao.obrigatorio}")
 		private String description;
 		private List<Question> questions;
 		
