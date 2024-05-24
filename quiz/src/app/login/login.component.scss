@@ -1,0 +1,105 @@
+.container-login {
+    background: linear-gradient(to top right, #7A00B2, #B615FF 30%, #85B200 90%);
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .login {
+        text-align: center;
+        width: 40%;
+        background-color: white;
+        border-radius: 10px;
+
+        .botoes {
+
+            .entrar {
+                border: 0px;
+                height: 50px;
+                width: 50%;
+                color: #7A00B2;
+                font-size: 20px;
+                border-radius: 10px 0px 0px 0px;
+            }
+
+            .cadastrar {
+                border: 0px;
+                height: 50px;
+                width: 50%;
+                color: #7A00B2;
+                font-size: 20px;
+                border-radius: 0px 10px 0px 0px;
+            }
+
+
+            button:hover {
+                background-color: #7A00B2;
+                color: white;
+            }
+        }
+
+        .form {
+            padding-top: 8%;
+
+            .group {
+                position: relative;
+                margin-bottom: 8%;
+                margin-left: 5%;
+
+                input {
+                    font-size: 18px;
+                    padding: 10px 10px 10px 5px;
+                    display: block;
+                    width: 90%;
+                    border: none;
+                    border-bottom: 1px solid black;
+                }
+
+                input:focus {
+                    outline: none;
+                }
+
+                label {
+                    color: black;
+                    font-size: 18px;
+                    font-weight: normal;
+                    position: absolute;
+                    pointer-events: none;
+                    left: 5px;
+                    top: 10px;
+                    transition: 0.2s ease all;
+                    -moz-transition: 0.2s ease all;
+                    -webkit-transition: 0.2s ease all;
+                }
+
+                input:focus~label,
+                input:valid~label {
+                    top: -12px;
+                    font-size: 14px;
+                    color: #5264AE;
+                }
+
+                input:focus~.bar:before,
+                input:focus~.bar:after {
+                    width: 50%;
+                }
+            }
+
+            .button {
+                background-color: #7A00B2;
+                color: white;
+                width: 100px;
+                height: 30px;
+                border: 0px;
+                border-radius: 5px;
+                margin-bottom: 5%;
+            }
+
+            .button:hover {
+                background-color: #85B200;
+                color: white;
+            }
+        }
+    }
+}
