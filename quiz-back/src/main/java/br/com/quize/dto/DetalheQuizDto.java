@@ -4,8 +4,8 @@ import java.util.List;
 
 import br.com.quize.model.Question;
 import br.com.quize.model.Quiz;
-import br.com.quize.model.Status;
-import br.com.quize.model.Visibility;
+import br.com.quize.model.enums.Status;
+import br.com.quize.model.enums.Visibility;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

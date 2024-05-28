@@ -1,17 +1,16 @@
-package br.com.quize.model;
+package br.com.quize.model.enums;
 
 import lombok.Getter;
 
 @Getter
-public enum TruthAnswer {
+public enum Status {
 
-	TRUTH(0, "Verdadeiro"),
-	FALSE(1, "Falso");
+	ATIVO(0, "Ativo"), INATIVO(1, "Inativo");
 
 	private Integer code;
 	private String description;
-	
-	TruthAnswer(Integer code, String description) {
+
+	Status(Integer code, String description) {
 		this.code = code;
 		this.description = description;
 	}
@@ -20,4 +19,5 @@ public enum TruthAnswer {
 	public String toString() {
 		return getDescription();
 	}
+
 }

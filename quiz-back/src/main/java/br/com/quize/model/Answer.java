@@ -2,6 +2,7 @@ package br.com.quize.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.quize.model.enums.TruthAnswer;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

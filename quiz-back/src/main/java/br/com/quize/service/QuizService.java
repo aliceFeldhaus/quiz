@@ -10,8 +10,8 @@ import br.com.quize.dto.DetalheQuizDto;
 import br.com.quize.dto.QuizDto;
 import br.com.quize.model.Question;
 import br.com.quize.model.Quiz;
-import br.com.quize.model.Status;
-import br.com.quize.model.Visibility;
+import br.com.quize.model.enums.Status;
+import br.com.quize.model.enums.Visibility;
 import br.com.quize.repository.QuizRepository;
 import jakarta.persistence.EntityNotFoundException;
 

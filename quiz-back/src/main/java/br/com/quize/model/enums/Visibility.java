@@ -1,4 +1,4 @@
-package br.com.quize.model;
+package br.com.quize.model.enums;
 
 public enum Visibility {
 
