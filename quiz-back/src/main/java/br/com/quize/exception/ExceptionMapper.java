@@ -14,6 +14,11 @@ import jakarta.persistence.EntityNotFoundException;
 @RestControllerAdvice
 public class ExceptionMapper {
 
+	@ExceptionHandler(NullPointerException.class)
+	public ResponseEntity<?> tratarErro500(NullPointerException ex) {
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+	}
+	
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<?> tratarErro404(EntityNotFoundException ex) {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());

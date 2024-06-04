@@ -31,7 +31,8 @@ public class TokenService {
 							.sign(algoritimo);
 			return token;
 		} catch (Exception e) {
-			throw new RuntimeException("Erro ao gerar o token JWT", e);
+//			throw new RuntimeException("Erro ao gerar o token JWT", e);
+			return null;
 		}
 	}
 	
@@ -45,7 +46,8 @@ public class TokenService {
 							.getSubject();
 			
 		} catch (Exception e) {
-			throw new RuntimeException("Erro ao validar o token JWT", e);
+//			throw new RuntimeException("Erro ao validar o token JWT", e);
+			return null;
 		}
 	}
 

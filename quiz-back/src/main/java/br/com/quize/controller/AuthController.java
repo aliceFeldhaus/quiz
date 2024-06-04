@@ -13,6 +13,7 @@ import br.com.quize.dto.AutenticacaoDto;
 import br.com.quize.model.User;
 import br.com.quize.security.AuthenticationData;
 import br.com.quize.security.TokenService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/login")
@@ -25,7 +26,7 @@ public class AuthController {
 	private TokenService tokenService;
 	
 	@PostMapping
-	public ResponseEntity<?> login(@RequestBody AutenticacaoDto authDto) {
+	public ResponseEntity<?> login(@Valid @RequestBody AutenticacaoDto authDto) {
 		var userData = new UsernamePasswordAuthenticationToken(authDto.email(), authDto.password());
 		// Aqui valida o usuario no banco de dados atraves do usuário e senha
 		var authentication = manager.authenticate(userData);
