@@ -36,3 +36,4 @@ build/
 ### MAVEN ###
 .mvn/
 /mvnw
+quiz/package-lock.json
