@@ -11,7 +11,7 @@ import { QuizService } from '../service/quiz.service';
 })
 export class QuizListComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'action'];
   dataSource = new MatTableDataSource<Quiz>();
   quizes = new Observable<Quiz[]>();
   // @ViewChild(MatPaginator) paginator: MatPaginator;

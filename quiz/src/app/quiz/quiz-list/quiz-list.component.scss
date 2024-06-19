@@ -1,0 +1,19 @@
+table {
+    th {
+        background-color: #71ffe5;
+    }
+
+    border-radius: 10px; /* Ajuste o valor conforme necessário */
+    overflow: hidden; /* Necessário para aplicar o arredondamento nas bordas */
+}
+
+mat-paginator {
+    background-color: #aca9ae;
+    border-radius: 0px 0px 10px 10px; /* Ajuste o valor conforme necessário */
+    overflow: hidden; /* Necessário para aplicar o arredondamento nas bordas */
+}
+
+.novo {
+    background-color: #01a053 !important;
+    margin: 1rem 0rem 1rem 0rem;
+}
