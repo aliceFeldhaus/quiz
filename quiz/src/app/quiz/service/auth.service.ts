@@ -7,7 +7,6 @@ import { Auth } from '../../../models/auth';
   providedIn: 'root',
 })
 export class AuthService {
-
   url = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
@@ -16,8 +15,11 @@ export class AuthService {
     return this.http.post(`${this.url}/login`, credenciais).pipe(
       map((response: any) => {
         localStorage.setItem('token', response.token);
-        console.log(response);
       })
     );
+  }
+
+  logout() {
+    localStorage.clear();
   }
 }
