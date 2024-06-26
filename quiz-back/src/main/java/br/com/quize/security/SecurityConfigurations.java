@@ -39,7 +39,7 @@ public class SecurityConfigurations {
 	            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // nao guarda o status de autenticacao por sessao, toda nova requisicao deve autenticar novamente o usuario
 	            .and().authorizeRequests()
 	            .requestMatchers(HttpMethod.POST, "/login").permitAll() // permite requisicao sem autenticacao ao endpoint /login
-	            //.anyRequest().authenticated() // qualquer outra requisicao deve ser autenticada
+	            .anyRequest().authenticated() // qualquer outra requisicao deve ser autenticada
 	            .and().exceptionHandling().authenticationEntryPoint(authEntryPoint) // Faz retornar status 401 em caso de excecao na autenticação
 	            .and().addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class) // seta a ordem de execucao dos filtros, primeiro o filtro personalizado e depois o filtro padrao do spring
 	            .build();
