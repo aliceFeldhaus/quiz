@@ -17,17 +17,36 @@ public class TokenService {
 	
 	private static final String ISSUER = "API quize";
 	
-	@Value("${api.security.token.secret}")
-	private String secret;
+	@Value("${api.security.access.token.secret}")
+	private String accessTokenSecret;
+	
+	@Value("${api.security.refresh.token.secret}")
+	private String refreshTokenSecret;
 
-	public String gerarToken(User usuario) {
+	public String gerarAccessToken(User usuario) {
 		try {
-			var algoritimo = Algorithm.HMAC256(secret);
+			var algoritimo = Algorithm.HMAC256(accessTokenSecret);
 			String token = JWT.create()
 							.withIssuer(ISSUER)	// nome da aplicação geradora do token
 							.withSubject(usuario.getEmail())
 							.withClaim("id", usuario.getId()) // para salvar qq informação extra que quiser
-							.withExpiresAt(dataExpiracao())
+							.withExpiresAt(dataExpiracaoAccessToken())
+							.sign(algoritimo);
+			return token;
+		} catch (Exception e) {
+//			throw new RuntimeException("Erro ao gerar o token JWT", e);
+			return null;
+		}
+	}
+	
+	public String gerarRefreshToken(User usuario) {
+		try {
+			var algoritimo = Algorithm.HMAC256(refreshTokenSecret);
+			String token = JWT.create()
+							.withIssuer(ISSUER)	// nome da aplicação geradora do token
+							.withSubject(usuario.getEmail())
+							.withClaim("id", usuario.getId()) // para salvar qq informação extra que quiser
+							.withExpiresAt(dataExpiracaoRefreshToken())
 							.sign(algoritimo);
 			return token;
 		} catch (Exception e) {
@@ -38,7 +57,7 @@ public class TokenService {
 	
 	public String validateToken(String tokenJWT) {
 		try {
-			var algoritimo = Algorithm.HMAC256(secret);
+			var algoritimo = Algorithm.HMAC256(accessTokenSecret);
 			return JWT.require(algoritimo)
 							.withIssuer(ISSUER)	// nome da aplicação geradora do token
 							.build()
@@ -50,8 +69,21 @@ public class TokenService {
 			return null;
 		}
 	}
+	
+	public String validateRefreshToken(String tokenJWT) {
+		var algoritimo = Algorithm.HMAC256(refreshTokenSecret);
+		return JWT.require(algoritimo)
+			.withIssuer(ISSUER)
+			.build()
+			.verify(tokenJWT)
+			.getSubject();
+	}
 
-	private Instant dataExpiracao() {
+	private Instant dataExpiracaoAccessToken() {
 		return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+	}
+	
+	private Instant dataExpiracaoRefreshToken() {
+		return LocalDateTime.now().plusHours(4).toInstant(ZoneOffset.of("-03:00"));
 	}
 }

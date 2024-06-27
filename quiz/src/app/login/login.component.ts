@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
       password: this.password,
     };
     this.authService.authenticate(auth).subscribe(response => {{
-      console.log(localStorage.getItem('token'));
       // vai para a rota principal da aplicação
       this.router.navigate(['']);
     }});
