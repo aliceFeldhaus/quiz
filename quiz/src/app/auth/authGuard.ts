@@ -10,11 +10,6 @@ export const authGuard = () => {
 
   let token = localStorage.getItem('token');
   if (token) {
-    const isExpired = authService.isTokenExpired(token);
-    if (isExpired) {
-      router.navigate(['/login']);
-      return false;
-    }
     return true;
   } else {
     router.navigate(['/login']);
