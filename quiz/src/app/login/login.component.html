@@ -1,8 +1,8 @@
 <div class="container-login">
   <div class="login">
     <div class="botoes">
-      <button class="entrar">Entre</button>
-      <button class="cadastrar">Cadastre-se</button>
+      <button class="entrar" [ngClass]="{'foco': entrar }" (click)="alteraEntrar()">Entre</button>
+      <button class="cadastrar" [ngClass]="{'foco': !entrar }"(click)="alteraCadastrar()">Cadastre-se</button>
     </div>
 
     <form class="form">
@@ -31,7 +31,9 @@
         <label>Senha</label>
       </div>
 
-      <button class="button" (click)="authenticate()">Entrar</button>
+      <button class="button" (click)="entrar ? authenticate() : cadastraUsuario()">
+        {{ entrar ? 'Entrar' : 'Cadastrar' }}
+      </button>
     </form>
   </div>
 </div>
