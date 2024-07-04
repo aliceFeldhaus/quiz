@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs';
 import { Auth } from '../../../models/auth';
 import { jwtDecode } from 'jwt-decode';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
