@@ -27,6 +27,6 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 				+ "\"status\": 401, "
 				+ "\"error\": \"Unauthorized\", "
 				+ "\"message\": \"Invalid token!\", "
-				+ "\"path\": \""+ path +"}";
+				+ "\"path\": \""+ path.replace("/", "") +"}";
 	}
 }
